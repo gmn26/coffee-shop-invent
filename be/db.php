@@ -7,8 +7,11 @@
     // connect to db
     $mysqli = mysqli_connect($db_host, $username, $password, $db_name);
 
-    function fetchBarang(){
-        return "SELECT nama_barang FROM tb_nama_barang";
+    function fetchBarang($connectDB){
+        $query = "SELECT nama_barang FROM tb_nama_barang";
+        $result = mysqli_query($connectDB, $query);
+
+        return mysqli_fetch_all($result);
     }
 
     function getBanyakBarang($connectDB){
@@ -53,6 +56,13 @@
 
     function getStokSetiapBarang($connectDB){
         $query = "SELECT total AS total FROM tb_stok_barang";
+        $result = mysqli_query($connectDB, $query);
+
+        return mysqli_fetch_array($result);
+    }
+
+    function getStokSatuBarang($connectDB, $search){
+        $query = "SELECT total AS total_barang FROM tb_stok_barang WHERE nama_barang = '$search'";
         $result = mysqli_query($connectDB, $query);
 
         return mysqli_fetch_array($result);
