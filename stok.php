@@ -51,7 +51,7 @@
                         <td>
                             <a href="barangmasuk.php?barang=<?= $data["nama_barang"]; ?>">Masuk</a>
                             |
-                            <a href="barangkeluar.phpbarang=<?= $data["nama_barang"]; ?>">Keluar</a>
+                            <a href="barangkeluar.php?barang=<?= $data["nama_barang"]; ?>">Keluar</a>
                         </td>
                     </tr>
         <?php
